@@ -1,0 +1,8 @@
+---
+- name: Install SSH Tunnel via Mac App Store
+  command: mas install "{{ item.id }}"
+  args:
+    creates: /Applications/{{ item.name }}.app
+  with_items:
+    - { id: 734418810, name: "SSH Tunnel" }
+  when: ansible_os_family == "Darwin"
